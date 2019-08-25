@@ -1,0 +1,8 @@
+---
+spring:
+  data:
+    mongodb:
+      host: springboot-mongo
+      port: 27017
+      database: fipe
+---

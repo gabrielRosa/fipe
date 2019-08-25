@@ -1,0 +1,34 @@
+<div>
+  <nav class="navbar navbar-light bg-light">
+    <span class="navbar-brand mb-0 h1">Fipe</span>
+  </nav>
+  <div class="row home-content">
+    <div class="col">
+      <form [formGroup]="brandForm">
+        <div class="form-group">
+          <label for="exampleFormControlSelect1" for="brandSelect">Selecione a marca do veículo:</label>
+          <select class="form-control" formControlName="brandSelect" id="brandSelect" (change)='onCurrentBrandChange($event)'>
+            <option *ngFor="let brand of brandArr" [value]="brand.id">{{brand.name}}</option>
+          </select>
+        </div>
+      </form>
+    </div>
+    <div class="col">
+      <form [formGroup]="carForm">
+        <div class="form-group">
+          <label for="exampleFormControlSelect1" for="carSelect">Selecione o veículo:</label>
+          <select class="form-control" formControlName="carSelect" id="carSelect" (change)='onCurrentCarChange($event)'>
+            <option *ngFor="let car of carArr" [value]="car.id">{{car.name}}</option>
+          </select>
+        </div>
+      </form>
+    </div>
+    <div class="col col-6">
+      <ul>
+        <li *ngFor="let car of carHistory; index as i">
+          Valor R$ {{car.preco}} em {{car.ano_modelo}} <span *ngIf="i !== 0">alteração de R$ {{car.valueChanged}} ({{car.percentageChanged}}%) em relação a {{car.baseYear}}</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

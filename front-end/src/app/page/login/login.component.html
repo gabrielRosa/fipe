@@ -1,0 +1,23 @@
+<div class="login row justify-content-md-center">
+  <div class="col col-lg-3">
+    <h2>Login</h2>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" class="form-control" formControlName="email" [ngClass]="{ 'is-invalid': submitted && form.email.errors }" />
+        <div *ngIf="submitted && form.email.errors" class="invalid-feedback">
+          <div *ngIf="form.email.errors.required">Email is required</div>
+          <div *ngIf="form.email.errors.email">Email invalid</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" class="form-control" formControlName="password" [ngClass]="{ 'is-invalid': submitted && form.password.errors }" />
+        <div *ngIf="submitted && form.password.errors" class="invalid-feedback">
+          <div *ngIf="form.password.errors.required">Password is required</div>
+        </div>
+      </div>
+      <button class="btn btn-primary">Login</button>
+    </form>
+  </div>
+</div>

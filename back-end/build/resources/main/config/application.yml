@@ -1,0 +1,17 @@
+---
+spring:
+  autoconfigure:
+    exclude: org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+---
+server:
+  port: 8000
+  servlet:
+    context-path: /api
+---
+test:
+  fipe:
+    base-url: http://fipeapi.appspot.com/api/1
+  jwt:
+    secret: fipe
+    expiration: 86400000
+---
